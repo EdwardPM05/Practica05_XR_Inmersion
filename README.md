@@ -80,4 +80,4 @@ Reporte_Practica05.docx / .pdf
 - [x] Repositorio en GitHub (este).
 - [x] Capturas de lightmaps y FPS ([`Evidencias`](Evidencias)).
 - [x] Reporte con tiempos de bake y FPS: [`Reporte_Practica05.pdf`](Reporte_Practica05.pdf).
-- [ ] Video de navegación con el cambio de volumen y dirección del audio (se entrega por separado).
+- [x] Video de navegación con el cambio de volumen y dirección del audio: https://youtu.be/tKGmqLHH-Ay
