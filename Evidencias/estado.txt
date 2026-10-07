@@ -1,0 +1,1 @@
+lightmaps=5 escena=Practica05

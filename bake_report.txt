@@ -1,0 +1,1 @@
+Bake ok=True lightmapper=ProgressiveGPU resolucion=40 tiempo=00:00:36.9368489 lightmaps=5

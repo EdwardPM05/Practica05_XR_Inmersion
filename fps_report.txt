@@ -1,0 +1,1 @@
+FPS promedio=231.1 min=0.2 max=311.7 frames=2210 duracion=15.0s
