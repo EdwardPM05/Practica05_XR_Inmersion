@@ -14,8 +14,8 @@ Escena inmersiva con **iluminación pre-calculada (lightmaps)** y **audio espaci
 | Lightmapper | Progressive GPU (NVIDIA GeForce RTX 4050 Laptop GPU) |
 | Parámetros del bake | 40 texels/unidad, tamaño máx. 1024, muestras directas 64 / indirectas 256 / entorno 128, 3 rebotes |
 | Lightmaps generados | 5 (2 de 1024×1024 y 3 de 512×512) |
-| Tiempo de bake | 00:00:36.9 |
-| FPS en Play Mode (PC) | promedio 231,1 · máx. 311,7 · mín. 0,2 |
+| Tiempo de bake | 00:00:33.09 (230,45 mrays/sec) |
+| FPS en Play Mode (PC) | promedio 204,4 · 218,4 FPS en Stats (4,6 ms por frame) |
 | Audio 3D | Spatial Blend 1.0 + Logarithmic Rolloff (Min 1 m, Max 15 m) |
 
 ## La escena
@@ -28,16 +28,13 @@ Sala de estar de 10 × 8 m con una ventana en la pared norte: parquet con textur
 - **XR:** `XR Origin (XR Rig)` con el único Audio Listener, más el `XR Device Simulator` para moverse con teclado y mouse.
 - **`FPS_Counter`:** muestra los FPS actuales y el promedio en pantalla.
 
-## Lightmaps generados
+## Iluminación y lightmaps
 
-Exportados desde el Editor después del bake (carpeta [`Evidencias`](Evidencias)).
+![Ventana Lighting](Evidencias/Captura_Lighting.png)
 
-| | | |
-|---|---|---|
-| ![Lightmap 0](Evidencias/Lightmap-0.png) | ![Lightmap 1](Evidencias/Lightmap-1.png) | ![Lightmap 2](Evidencias/Lightmap-2.png) |
-| Lightmap-0 | Lightmap-1 | Lightmap-2 |
-| ![Lightmap 3](Evidencias/Lightmap-3.png) | ![Lightmap 4](Evidencias/Lightmap-4.png) | |
-| Lightmap-3 | Lightmap-4 | |
+![Baked Lightmaps](Evidencias/Captura_Lightmaps.png)
+
+Las capturas están en la carpeta [`Evidencias`](Evidencias).
 
 ## Audio espacial
 
@@ -47,11 +44,15 @@ El Audio Source de la radio usa Loop, Play On Awake, Spatial Blend 1.0 y atenuac
 
 ## Rendimiento
 
-Se midieron 2210 cuadros durante 15 s en Play Mode (tras 3 s de calentamiento): **231,1 FPS** de promedio. El mínimo de 0,2 FPS es un único cuadro detenido, no el comportamiento sostenido.
+Medido en Play Mode recorriendo la sala: **204,4 FPS** de promedio en el contador de la escena. La ventana Statistics marca 218,4 FPS, 4,6 ms por frame, 1,6 ms de GPU, 25,0 mil triángulos y 141 draw calls.
+
+![Contador de FPS](Evidencias/Captura_FPS.png)
+
+![Statistics](Evidencias/Captura_Stats.png)
+
+![Profiler](Evidencias/Captura_Profiler.png)
 
 > **Alcance:** la medición se hizo en el Editor de una PC con RTX 4050 Laptop, sin visor. No es representativa de un Meta Quest; sirve como referencia relativa.
-
-Los datos crudos están en [`bake_report.txt`](bake_report.txt) y [`fps_report.txt`](fps_report.txt).
 
 ## Cómo probar la escena
 
@@ -59,14 +60,6 @@ Los datos crudos están en [`bake_report.txt`](bake_report.txt) y [`fps_report.t
 2. Abre `Assets/Scenes/Practica05.unity`.
 3. Pulsa **Play**. Muévete con el XR Device Simulator (las teclas se muestran en un panel en la ventana Game).
 4. Acércate y aléjate de la radio y gira para dejarla a izquierda, derecha y detrás: el volumen y la dirección del sonido cambian.
-
-### Reconstruir la escena y el bake
-
-El menú **Practica05** del Editor ejecuta los scripts de [`Assets/Editor`](Assets/Editor):
-
-- **1. Construir escena** crea la sala, los materiales y las luces.
-- **2. Hornear luz (Bake)** genera los lightmaps y guarda el tiempo en `bake_report.txt`.
-- **4. Medir FPS (Play 15 s)** mide los FPS y guarda `fps_report.txt`.
 
 ## Estructura
 
@@ -78,14 +71,13 @@ Assets/
   Samples/        Starter Assets y XR Device Simulator (XRI 3.2.1)
   Scenes/         Practica05.unity + datos de lightmaps
   Scripts/        FPSCounter.cs
-Evidencias/       lightmaps exportados
-tools/            make_report.py (genera el PDF)
-Reporte_Practica05.pdf
+Evidencias/       capturas de la práctica
+Reporte_Practica05.docx / .pdf
 ```
 
 ## Entregables
 
 - [x] Repositorio en GitHub (este).
-- [x] Lightmaps generados ([`Evidencias`](Evidencias)).
-- [x] Reporte PDF con tiempos de bake y FPS: [`Reporte_Practica05.pdf`](Reporte_Practica05.pdf).
+- [x] Capturas de lightmaps y FPS ([`Evidencias`](Evidencias)).
+- [x] Reporte con tiempos de bake y FPS: [`Reporte_Practica05.pdf`](Reporte_Practica05.pdf).
 - [ ] Video de navegación con el cambio de volumen y dirección del audio (se entrega por separado).
