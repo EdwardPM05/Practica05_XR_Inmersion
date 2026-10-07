@@ -118,7 +118,7 @@ story += [
         ["Capturas de lightmaps", "Carpeta Evidencias/ (Lightmap-0 a Lightmap-4) y Figura 1"],
         ["Video de navegación", "Grabación 2026-10-07 090749.mp4 (recorrido con XR Device Simulator)"],
         ["Datos del reporte", "bake_report.txt y fps_report.txt"],
-        ["Repositorio GitHub", "Pendiente de publicar"],
+        ["Repositorio GitHub", "https://github.com/EdwardPM05/Practica05_XR_Inmersion (privado)"],
     ], [4.3 * cm, 12.7 * cm]),
 
     Paragraph("7. Conclusión", H2),
